@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Env", "Env", "{721D0B97-AC6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Handlers", "App.Handlers\App.Handlers.csproj", "{17CD61F0-8BF9-4EE5-9DBF-01F12DB88E7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Repository", "App.Repository\App.Repository.csproj", "{0B8D7CCE-FAAD-4F5E-9A7A-BFF295D182F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Repository", "App.Repository\App.Repository.csproj", "{0B8D7CCE-FAAD-4F5E-9A7A-BFF295D182F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
