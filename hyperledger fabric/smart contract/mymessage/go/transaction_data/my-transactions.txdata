@@ -1,0 +1,44 @@
+[
+    {
+        "transactionName": "ImessageExists",
+        "transactionLabel": "A test ImessageExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "CreateImessage",
+        "transactionLabel": "A test CreateImessage transaction",
+        "arguments": [
+            "001",
+            "some value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "ReadImessage",
+        "transactionLabel": "A test ReadImessage transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "UpdateImessage",
+        "transactionLabel": "A test UpdateImessage transaction",
+        "arguments": [
+            "001",
+            "some other value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "DeleteImessage",
+        "transactionLabel": "A test DeleteImessage transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]

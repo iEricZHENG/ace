@@ -1,0 +1,26 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["App.WebClient/App.WebClient.csproj", "App.WebClient/"]
+COPY ["App.IActor/App.IActor.csproj", "App.IActor/"]
+COPY ["App.Framework/App.Framework.csproj", "App.Framework/"]
+COPY ["App.Core/App.Core.csproj", "App.Core/"]
+COPY ["App.Dapper/App.Dapper.csproj", "App.Dapper/"]
+COPY ["Lib/Lib.csproj", "Lib/"]
+RUN dotnet restore "App.WebClient/App.WebClient.csproj"
+COPY . .
+WORKDIR "/src/App.WebClient"
+RUN dotnet build "App.WebClient.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "App.WebClient.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "App.WebClient.dll"]

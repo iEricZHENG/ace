@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Exe</OutputType>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="app.config" />
+	  <None Remove="NLog.config" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="app.config">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="NLog.config">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Orleans.Clustering.AdoNet" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.CodeGenerator.MSBuild" Version="3.6.5">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Orleans.Core" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.Core.Abstractions" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.OrleansProviders" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Orleans.OrleansSqlUtils" Version="2.4.5" />
+		<PackageReference Include="Microsoft.Orleans.Server" Version="3.6.5" />
+		<PackageReference Include="Npgsql" Version="7.0.0" />
+		<PackageReference Include="Orleans.TelemetryConsumers.Datadog" Version="1.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="OrleansDashboard" Version="3.6.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\App.Actor\App.Actor.csproj" />
+	  <ProjectReference Include="..\App.Core\App.Core.csproj" />
+	  <ProjectReference Include="..\App.Handlers\App.Handlers.csproj" />
+	  <ProjectReference Include="..\App.IActor\App.IActor.csproj" />
+	  <ProjectReference Include="..\App.Repository\App.Repository.csproj" />
+	</ItemGroup>
+
+</Project>
